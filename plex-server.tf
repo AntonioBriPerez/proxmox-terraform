@@ -37,3 +37,8 @@ resource "proxmox_vm_qemu" "plex-server" {
     ]
   }
 }
+
+
+output "ip_address" {
+  value = proxmox_vm_qemu.plex-server[0].default_ipv4_address
+}
