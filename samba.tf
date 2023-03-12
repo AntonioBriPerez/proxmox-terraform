@@ -26,8 +26,9 @@ resource "proxmox_vm_qemu" "samba-server" {
 
   # if you want two NICs, just copy this whole network section and duplicate it
   network {
-    model  = "virtio"
-    bridge = "vmbr0"
+    model   = "virtio"
+    bridge  = "vmbr0"
+    macaddr = "FE:1C:0D:9D:26:65"
 
   }
   # not sure exactly what this is for. presumably something about MAC addresses and ignore network changes during the life of the VM
@@ -47,4 +48,8 @@ resource "proxmox_vm_qemu" "samba-server" {
 
 output "ip_address_samba_server" {
   value = proxmox_vm_qemu.samba-server[0].default_ipv4_address
+}
+
+output "mac_address_samba_server" {
+  value = proxmox_vm_qemu.samba-server[0].network.0.macaddr
 }

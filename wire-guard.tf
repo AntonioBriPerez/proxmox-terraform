@@ -26,9 +26,9 @@ resource "proxmox_vm_qemu" "wireguard-server" {
 
   # if you want two NICs, just copy this whole network section and duplicate it
   network {
-    model  = "virtio"
-    bridge = "vmbr0"
-
+    model   = "virtio"
+    bridge  = "vmbr0"
+    macaddr = "22:EA:D5:7F:00:23"
   }
   # not sure exactly what this is for. presumably something about MAC addresses and ignore network changes during the life of the VM
   lifecycle {
@@ -47,4 +47,8 @@ resource "proxmox_vm_qemu" "wireguard-server" {
 
 output "ip_address_wireguard_server" {
   value = proxmox_vm_qemu.wireguard-server[0].default_ipv4_address
+}
+
+output "mac_address_wireguard_server" {
+  value = proxmox_vm_qemu.wireguard-server[0].network.0.macaddr
 }
