@@ -8,6 +8,7 @@ resource "proxmox_vm_qemu" "plex-server" {
   # basic VM settings here. agent refers to guest agent
   agent = 1
   # pxe     = true
+  vmid    = "101"
   os_type = "cloud-init"
   # boot    = "order=net0;scsi0"
   cores   = 2

@@ -9,6 +9,8 @@ resource "proxmox_vm_qemu" "wireguard-server" {
   agent   = 1
   os_type = "cloud-init"
   cores   = 1
+  vmid    = "102"
+
   sockets = 1
   cpu     = "host"
   memory  = 1024

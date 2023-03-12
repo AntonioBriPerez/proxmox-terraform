@@ -9,6 +9,8 @@ resource "proxmox_vm_qemu" "samba-server" {
   agent   = 1
   os_type = "cloud-init"
   cores   = 1
+  vmid    = "100"
+
   sockets = 1
   cpu     = "host"
   memory  = 1024
