@@ -6,8 +6,10 @@ resource "proxmox_vm_qemu" "plex-server" {
   # another variable with contents "ubuntu-2004-cloudinit-template"
   clone = "ubuntu-server-focal-test-1"
   # basic VM settings here. agent refers to guest agent
-  agent   = 1
+  agent = 1
+  # pxe     = true
   os_type = "cloud-init"
+  # boot    = "order=net0;scsi0"
   cores   = 2
   sockets = 1
   cpu     = "host"
@@ -34,6 +36,7 @@ resource "proxmox_vm_qemu" "plex-server" {
   lifecycle {
     ignore_changes = [
       network,
+      disk
     ]
   }
 
