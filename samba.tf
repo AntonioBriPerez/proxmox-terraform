@@ -10,6 +10,7 @@ resource "proxmox_vm_qemu" "samba-server" {
   os_type = "cloud-init"
   cores   = 1
   vmid    = "100"
+  onboot  = true
 
   sockets = 1
   cpu     = "host"

@@ -15,7 +15,7 @@ resource "proxmox_vm_qemu" "wireguard-server" {
   cpu     = "host"
   memory  = 1024
   scsihw  = "virtio-scsi-pci"
-
+  onboot  = true
   # bootdisk = "scsi0"
   # disk {
   #   slot = 0

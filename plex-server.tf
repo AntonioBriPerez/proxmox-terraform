@@ -10,8 +10,9 @@ resource "proxmox_vm_qemu" "plex-server" {
   sockets     = 1
   cpu         = "host"
   memory      = 8192
-  scsihw      = "virtio-scsi-pci"
+  onboot      = true
 
+  scsihw = "virtio-scsi-pci"
   # bootdisk = "scsi0"
   # disk {
   #   slot = 0
