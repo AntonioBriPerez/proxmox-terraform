@@ -32,7 +32,7 @@ resource "proxmox_vm_qemu" "zabbix-server" {
   network {
     model   = "virtio"
     bridge  = "vmbr0"
-    macaddr = "FE:1C:0D:9D:26:66"
+    macaddr = "FE:1C:0D:9D:26:67"
 
   }
   # not sure exactly what this is for. presumably something about MAC addresses and ignore network changes during the life of the VM
