@@ -12,7 +12,11 @@ Chaning this values for whatever it takes in your case.
 
 ## Terraform VM's files
 All 3 current machines: samba, plex and wireguard has the same exact configuration. The code should be refactored but it will be done in the future. 
+To bypass the limitation of the plugin to handle passthrough HDD we can terraformate the VM's with partial plans/appy: 
 
+```bash
+terraform apply\plan -target="proxmox_vm_qemu.gitlab-server" #f.eg
+```
 ```hcl
 resource "proxmox_vm_qemu" "plex-server" {
   count       = 1
