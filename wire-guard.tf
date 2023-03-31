@@ -11,20 +11,20 @@ resource "proxmox_vm_qemu" "wireguard-server" {
   cores   = 1
   vmid    = "102"
 
-  sockets = 1
-  cpu     = "host"
-  memory  = 1024
-  scsihw  = "virtio-scsi-pci"
-  onboot  = true
-  # bootdisk = "scsi0"
-  # disk {
-  #   slot = 0
-  #   # set disk size here. leave it small for testing because expanding the disk takes time.
-  #   size     = "32G"
-  #   type     = "scsi"
-  #   storage  = "local"
-  #   iothread = 0
-  # }
+  sockets  = 1
+  cpu      = "host"
+  memory   = 2048
+  scsihw   = "virtio-scsi-pci"
+  onboot   = true
+  bootdisk = "scsi0"
+  disk {
+    slot = 0
+    # set disk size here. leave it small for testing because expanding the disk takes time.
+    size     = "20G"
+    type     = "scsi"
+    storage  = "local"
+    iothread = 0
+  }
 
   # if you want two NICs, just copy this whole network section and duplicate it
   network {
