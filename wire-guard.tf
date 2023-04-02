@@ -16,12 +16,12 @@ resource "proxmox_vm_qemu" "wireguard-server" {
   memory   = 2048
   scsihw   = "virtio-scsi-pci"
   onboot   = true
-  bootdisk = "scsi0"
+  bootdisk = "virtio0"
   disk {
     slot = 0
     # set disk size here. leave it small for testing because expanding the disk takes time.
     size     = "20G"
-    type     = "scsi"
+    type     = "virtio"
     storage  = "local"
     iothread = 0
   }
