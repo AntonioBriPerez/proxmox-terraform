@@ -1,11 +1,11 @@
 
-module "k8s-master" {
+module "k8s-m" {
   source = "./proxmox-vm"
 
-  vm-name  = "zabbix-server"
-  template = "ubuntu-server-focal-30G"
-  cores    = 2
-  vm-id    = "106"
+  vm-name  = "K8s-m"
+  template = "RHEL9.1"
+  cores    = 1
+  vm-id    = "200"
   onboot   = true
   memory   = 2048
   macaddr  = "FE:1C:0D:9D:26:70"
@@ -14,13 +14,13 @@ module "k8s-master" {
 }
 
 
-module "k8s-node1" {
+module "k8s-n1" {
   source = "./proxmox-vm"
 
-  vm-name  = "zabbix-server"
-  template = "ubuntu-server-focal-30G"
-  cores    = 2
-  vm-id    = "106"
+  vm-name  = "K8s-n1"
+  template = "RHEL9.1"
+  cores    = 1
+  vm-id    = "201"
   onboot   = true
   memory   = 2048
   macaddr  = "FE:1C:0D:9D:26:71"
@@ -29,13 +29,13 @@ module "k8s-node1" {
 }
 
 
-module "k8s-node2" {
+module "k8s-n2" {
   source = "./proxmox-vm"
 
-  vm-name  = "zabbix-server"
-  template = "ubuntu-server-focal-30G"
-  cores    = 2
-  vm-id    = "106"
+  vm-name  = "K8s-n2"
+  template = "RHEL9.1"
+  cores    = 1
+  vm-id    = "202"
   onboot   = true
   memory   = 2048
   macaddr  = "FE:1C:0D:9D:26:72"
